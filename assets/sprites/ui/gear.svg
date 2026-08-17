@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <g fill="#ffffff">
+    <rect x="51" y="4" width="18" height="28" rx="4"/>
+    <rect x="51" y="4" width="18" height="28" rx="4" transform="rotate(45 60 60)"/>
+    <rect x="51" y="4" width="18" height="28" rx="4" transform="rotate(90 60 60)"/>
+    <rect x="51" y="4" width="18" height="28" rx="4" transform="rotate(135 60 60)"/>
+    <rect x="51" y="4" width="18" height="28" rx="4" transform="rotate(180 60 60)"/>
+    <rect x="51" y="4" width="18" height="28" rx="4" transform="rotate(225 60 60)"/>
+    <rect x="51" y="4" width="18" height="28" rx="4" transform="rotate(270 60 60)"/>
+    <rect x="51" y="4" width="18" height="28" rx="4" transform="rotate(315 60 60)"/>
+  </g>
+  <path fill="#ffffff" fill-rule="evenodd"
+        d="M60 16 A44 44 0 1 0 60.01 16 Z M60 42 A18 18 0 1 0 60.01 42 Z"/>
+</svg>

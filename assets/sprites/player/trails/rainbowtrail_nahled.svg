@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 290 290" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <defs>
+        <linearGradient id="rb" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="rgb(255,32,32)"/>
+            <stop offset="0.2" stop-color="rgb(255,150,0)"/>
+            <stop offset="0.4" stop-color="rgb(255,235,0)"/>
+            <stop offset="0.6" stop-color="rgb(40,210,60)"/>
+            <stop offset="0.8" stop-color="rgb(40,150,255)"/>
+            <stop offset="1" stop-color="rgb(180,50,220)"/>
+        </linearGradient>
+    </defs>
+    <circle cx="145" cy="145" r="131.203" style="fill:url(#rb);stroke:black;stroke-width:27.08px;"/>
+</svg>

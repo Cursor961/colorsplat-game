@@ -1,0 +1,849 @@
+[gd_scene load_steps=15 format=3 uid="uid://colorsplat_level_25"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_manager.gd" id="lm"]
+[ext_resource type="Script" path="res://scripts/game/level/level_wall.gd" id="wall"]
+[ext_resource type="Script" path="res://scripts/game/level/level_saw.gd" id="saw"]
+[ext_resource type="Script" path="res://scripts/game/level/level_teleport.gd" id="tp"]
+[ext_resource type="Script" path="res://scripts/game/level/level_key.gd" id="key"]
+[ext_resource type="Script" path="res://scripts/game/level/locked_wall.gd" id="lock"]
+[ext_resource type="Script" path="res://scripts/game/level/level_monster_spawner.gd" id="spawner"]
+[ext_resource type="Script" path="res://scripts/game/level/level_monster_spawn.gd" id="mob"]
+[ext_resource type="Script" path="res://scripts/game/level/level_pickup_spawn.gd" id="pickup"]
+[ext_resource type="Script" path="res://scripts/game/level/level_exit.gd" id="exit"]
+[ext_resource type="Script" path="res://scripts/game/level/level_turret.gd" id="turret"]
+[ext_resource type="Script" path="res://scripts/game/level/level_laserpointer.gd" id="laser"]
+[ext_resource type="Script" path="res://scripts/game/level/level_breakable_wall.gd" id="break"]
+[ext_resource type="Script" path="res://scripts/game/level/level_metin.gd" id="metin"]
+
+[node name="Level25" type="Node2D"]
+script = ExtResource("lm")
+goal_reach_exit = true
+player_start_pos = Vector2(432, 1968)
+stars_by_speed = true
+star_time_1 = 9999.0
+star_time_2 = 81.0
+star_time_3 = 54.0
+arena_width_override = 8832.0
+arena_height_override = 3840.0
+level_number = 25
+level_name = "Level 25"
+description = "Čtyři kaple s metiny — jeden skrývá klíč. ★ dokončení · ★★ pod 1:21 · ★★★ pod 0:54"
+monsters_wander = true
+wander_detect_radius = 480.0
+
+[node name="Wall0" type="StaticBody2D" parent="."]
+position = Vector2(4416, 192)
+script = ExtResource("wall")
+wall_size = Vector2(8832, 384)
+
+[node name="Wall1" type="StaticBody2D" parent="."]
+position = Vector2(2208, 432)
+script = ExtResource("wall")
+wall_size = Vector2(4416, 96)
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(6864, 432)
+script = ExtResource("wall")
+wall_size = Vector2(3936, 96)
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(864, 528)
+script = ExtResource("wall")
+wall_size = Vector2(1728, 96)
+
+[node name="Wall4" type="StaticBody2D" parent="."]
+position = Vector2(2592, 528)
+script = ExtResource("wall")
+wall_size = Vector2(960, 96)
+
+[node name="Wall5" type="StaticBody2D" parent="."]
+position = Vector2(3936, 528)
+script = ExtResource("wall")
+wall_size = Vector2(960, 96)
+
+[node name="Wall6" type="StaticBody2D" parent="."]
+position = Vector2(5328, 528)
+script = ExtResource("wall")
+wall_size = Vector2(864, 96)
+
+[node name="Wall7" type="StaticBody2D" parent="."]
+position = Vector2(6624, 528)
+script = ExtResource("wall")
+wall_size = Vector2(960, 96)
+
+[node name="Wall8" type="StaticBody2D" parent="."]
+position = Vector2(8160, 528)
+script = ExtResource("wall")
+wall_size = Vector2(1344, 96)
+
+[node name="Wall9" type="StaticBody2D" parent="."]
+position = Vector2(816, 624)
+script = ExtResource("wall")
+wall_size = Vector2(1632, 96)
+
+[node name="Wall10" type="StaticBody2D" parent="."]
+position = Vector2(2592, 624)
+script = ExtResource("wall")
+wall_size = Vector2(768, 96)
+
+[node name="Wall11" type="StaticBody2D" parent="."]
+position = Vector2(3936, 624)
+script = ExtResource("wall")
+wall_size = Vector2(768, 96)
+
+[node name="Wall12" type="StaticBody2D" parent="."]
+position = Vector2(5280, 624)
+script = ExtResource("wall")
+wall_size = Vector2(768, 96)
+
+[node name="Wall13" type="StaticBody2D" parent="."]
+position = Vector2(6624, 624)
+script = ExtResource("wall")
+wall_size = Vector2(768, 96)
+
+[node name="Wall14" type="StaticBody2D" parent="."]
+position = Vector2(8208, 624)
+script = ExtResource("wall")
+wall_size = Vector2(1248, 96)
+
+[node name="Wall15" type="StaticBody2D" parent="."]
+position = Vector2(768, 720)
+script = ExtResource("wall")
+wall_size = Vector2(1536, 96)
+
+[node name="Wall16" type="StaticBody2D" parent="."]
+position = Vector2(2592, 720)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall17" type="StaticBody2D" parent="."]
+position = Vector2(3936, 720)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall18" type="StaticBody2D" parent="."]
+position = Vector2(5280, 720)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall19" type="StaticBody2D" parent="."]
+position = Vector2(6624, 720)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall20" type="StaticBody2D" parent="."]
+position = Vector2(8256, 720)
+script = ExtResource("wall")
+wall_size = Vector2(1152, 96)
+
+[node name="Wall21" type="StaticBody2D" parent="."]
+position = Vector2(720, 1104)
+script = ExtResource("wall")
+wall_size = Vector2(1440, 672)
+
+[node name="Wall22" type="StaticBody2D" parent="."]
+position = Vector2(8304, 816)
+script = ExtResource("wall")
+wall_size = Vector2(1056, 96)
+
+[node name="Wall23" type="StaticBody2D" parent="."]
+position = Vector2(8352, 1344)
+script = ExtResource("wall")
+wall_size = Vector2(960, 960)
+
+[node name="Wall24" type="StaticBody2D" parent="."]
+position = Vector2(1488, 1392)
+script = ExtResource("wall")
+wall_size = Vector2(96, 864)
+
+[node name="Wall25" type="StaticBody2D" parent="."]
+position = Vector2(1584, 1440)
+script = ExtResource("wall")
+wall_size = Vector2(96, 768)
+
+[node name="Wall26" type="StaticBody2D" parent="."]
+position = Vector2(2592, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(768, 1728)
+
+[node name="Wall27" type="StaticBody2D" parent="."]
+position = Vector2(3936, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(768, 1728)
+
+[node name="Wall28" type="StaticBody2D" parent="."]
+position = Vector2(5280, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(768, 1728)
+
+[node name="Wall29" type="StaticBody2D" parent="."]
+position = Vector2(6624, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(768, 1728)
+
+[node name="Wall30" type="StaticBody2D" parent="."]
+position = Vector2(1680, 1488)
+script = ExtResource("wall")
+wall_size = Vector2(96, 672)
+
+[node name="Wall31" type="StaticBody2D" parent="."]
+position = Vector2(2160, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1536)
+
+[node name="Wall32" type="StaticBody2D" parent="."]
+position = Vector2(3024, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1536)
+
+[node name="Wall33" type="StaticBody2D" parent="."]
+position = Vector2(3504, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1536)
+
+[node name="Wall34" type="StaticBody2D" parent="."]
+position = Vector2(4368, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1536)
+
+[node name="Wall35" type="StaticBody2D" parent="."]
+position = Vector2(4848, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1536)
+
+[node name="Wall36" type="StaticBody2D" parent="."]
+position = Vector2(5712, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1536)
+
+[node name="Wall37" type="StaticBody2D" parent="."]
+position = Vector2(6192, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1536)
+
+[node name="Wall38" type="StaticBody2D" parent="."]
+position = Vector2(7056, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1536)
+
+[node name="Wall39" type="StaticBody2D" parent="."]
+position = Vector2(7536, 1488)
+script = ExtResource("wall")
+wall_size = Vector2(96, 672)
+
+[node name="Wall40" type="StaticBody2D" parent="."]
+position = Vector2(1776, 1536)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall41" type="StaticBody2D" parent="."]
+position = Vector2(3264, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(384, 1344)
+
+[node name="Wall42" type="StaticBody2D" parent="."]
+position = Vector2(4608, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(384, 1344)
+
+[node name="Wall43" type="StaticBody2D" parent="."]
+position = Vector2(5952, 1920)
+script = ExtResource("wall")
+wall_size = Vector2(384, 1344)
+
+[node name="Wall44" type="StaticBody2D" parent="."]
+position = Vector2(7296, 1584)
+script = ExtResource("wall")
+wall_size = Vector2(384, 672)
+
+[node name="Wall45" type="StaticBody2D" parent="."]
+position = Vector2(192, 1488)
+script = ExtResource("wall")
+wall_size = Vector2(384, 96)
+
+[node name="Wall46" type="StaticBody2D" parent="."]
+position = Vector2(1152, 1488)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall47" type="StaticBody2D" parent="."]
+position = Vector2(144, 1584)
+script = ExtResource("wall")
+wall_size = Vector2(288, 96)
+
+[node name="Wall48" type="StaticBody2D" parent="."]
+position = Vector2(1200, 1584)
+script = ExtResource("wall")
+wall_size = Vector2(480, 96)
+
+[node name="Wall49" type="StaticBody2D" parent="."]
+position = Vector2(96, 2736)
+script = ExtResource("wall")
+wall_size = Vector2(192, 2208)
+
+[node name="Wall50" type="StaticBody2D" parent="."]
+position = Vector2(1248, 1728)
+script = ExtResource("wall")
+wall_size = Vector2(384, 192)
+
+[node name="Wall51" type="StaticBody2D" parent="."]
+position = Vector2(8400, 1872)
+script = ExtResource("wall")
+wall_size = Vector2(864, 96)
+
+[node name="Wall52" type="StaticBody2D" parent="."]
+position = Vector2(7248, 1968)
+script = ExtResource("wall")
+wall_size = Vector2(288, 96)
+
+[node name="Wall53" type="StaticBody2D" parent="."]
+position = Vector2(8448, 1968)
+script = ExtResource("wall")
+wall_size = Vector2(768, 96)
+
+[node name="Wall54" type="StaticBody2D" parent="."]
+position = Vector2(2064, 2304)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall55" type="StaticBody2D" parent="."]
+position = Vector2(7200, 2064)
+script = ExtResource("wall")
+wall_size = Vector2(192, 96)
+
+[node name="Wall56" type="StaticBody2D" parent="."]
+position = Vector2(8496, 2064)
+script = ExtResource("wall")
+wall_size = Vector2(672, 96)
+
+[node name="Wall57" type="StaticBody2D" parent="."]
+position = Vector2(1536, 2352)
+script = ExtResource("wall")
+wall_size = Vector2(960, 480)
+
+[node name="Wall58" type="StaticBody2D" parent="."]
+position = Vector2(7152, 2352)
+script = ExtResource("wall")
+wall_size = Vector2(96, 480)
+
+[node name="Wall59" type="StaticBody2D" parent="."]
+position = Vector2(8544, 2976)
+script = ExtResource("wall")
+wall_size = Vector2(576, 1728)
+
+[node name="Wall60" type="StaticBody2D" parent="."]
+position = Vector2(240, 2496)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall61" type="StaticBody2D" parent="."]
+position = Vector2(1008, 2496)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall62" type="StaticBody2D" parent="."]
+position = Vector2(336, 2496)
+script = ExtResource("wall")
+wall_size = Vector2(96, 384)
+
+[node name="Wall63" type="StaticBody2D" parent="."]
+position = Vector2(912, 2496)
+script = ExtResource("wall")
+wall_size = Vector2(96, 384)
+
+[node name="Wall64" type="StaticBody2D" parent="."]
+position = Vector2(624, 2496)
+script = ExtResource("wall")
+wall_size = Vector2(480, 192)
+
+[node name="Wall65" type="StaticBody2D" parent="."]
+position = Vector2(1392, 2640)
+script = ExtResource("wall")
+wall_size = Vector2(672, 96)
+
+[node name="Wall66" type="StaticBody2D" parent="."]
+position = Vector2(8208, 3216)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1248)
+
+[node name="Wall67" type="StaticBody2D" parent="."]
+position = Vector2(1344, 2736)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall68" type="StaticBody2D" parent="."]
+position = Vector2(8112, 3264)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1152)
+
+[node name="Wall69" type="StaticBody2D" parent="."]
+position = Vector2(1296, 2832)
+script = ExtResource("wall")
+wall_size = Vector2(480, 96)
+
+[node name="Wall70" type="StaticBody2D" parent="."]
+position = Vector2(2592, 2832)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall71" type="StaticBody2D" parent="."]
+position = Vector2(3936, 2832)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall72" type="StaticBody2D" parent="."]
+position = Vector2(5280, 2832)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall73" type="StaticBody2D" parent="."]
+position = Vector2(6624, 2832)
+script = ExtResource("wall")
+wall_size = Vector2(576, 96)
+
+[node name="Wall74" type="StaticBody2D" parent="."]
+position = Vector2(8016, 3312)
+script = ExtResource("wall")
+wall_size = Vector2(96, 1056)
+
+[node name="Wall75" type="StaticBody2D" parent="."]
+position = Vector2(1248, 2928)
+script = ExtResource("wall")
+wall_size = Vector2(384, 96)
+
+[node name="Wall76" type="StaticBody2D" parent="."]
+position = Vector2(7872, 3360)
+script = ExtResource("wall")
+wall_size = Vector2(192, 960)
+
+[node name="Wall77" type="StaticBody2D" parent="."]
+position = Vector2(1296, 3456)
+script = ExtResource("wall")
+wall_size = Vector2(480, 768)
+
+[node name="Wall78" type="StaticBody2D" parent="."]
+position = Vector2(7728, 3456)
+script = ExtResource("wall")
+wall_size = Vector2(96, 768)
+
+[node name="Wall79" type="StaticBody2D" parent="."]
+position = Vector2(240, 3504)
+script = ExtResource("wall")
+wall_size = Vector2(96, 672)
+
+[node name="Wall80" type="StaticBody2D" parent="."]
+position = Vector2(1008, 3504)
+script = ExtResource("wall")
+wall_size = Vector2(96, 672)
+
+[node name="Wall81" type="StaticBody2D" parent="."]
+position = Vector2(1584, 3504)
+script = ExtResource("wall")
+wall_size = Vector2(96, 672)
+
+[node name="Wall82" type="StaticBody2D" parent="."]
+position = Vector2(2592, 3504)
+script = ExtResource("wall")
+wall_size = Vector2(768, 672)
+
+[node name="Wall83" type="StaticBody2D" parent="."]
+position = Vector2(3936, 3504)
+script = ExtResource("wall")
+wall_size = Vector2(768, 672)
+
+[node name="Wall84" type="StaticBody2D" parent="."]
+position = Vector2(5280, 3504)
+script = ExtResource("wall")
+wall_size = Vector2(768, 672)
+
+[node name="Wall85" type="StaticBody2D" parent="."]
+position = Vector2(6624, 3504)
+script = ExtResource("wall")
+wall_size = Vector2(768, 672)
+
+[node name="Wall86" type="StaticBody2D" parent="."]
+position = Vector2(7632, 3504)
+script = ExtResource("wall")
+wall_size = Vector2(96, 672)
+
+[node name="Wall87" type="StaticBody2D" parent="."]
+position = Vector2(336, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall88" type="StaticBody2D" parent="."]
+position = Vector2(912, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall89" type="StaticBody2D" parent="."]
+position = Vector2(1680, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall90" type="StaticBody2D" parent="."]
+position = Vector2(2160, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall91" type="StaticBody2D" parent="."]
+position = Vector2(3024, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall92" type="StaticBody2D" parent="."]
+position = Vector2(3504, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall93" type="StaticBody2D" parent="."]
+position = Vector2(4368, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall94" type="StaticBody2D" parent="."]
+position = Vector2(4848, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall95" type="StaticBody2D" parent="."]
+position = Vector2(5712, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall96" type="StaticBody2D" parent="."]
+position = Vector2(6192, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall97" type="StaticBody2D" parent="."]
+position = Vector2(7056, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall98" type="StaticBody2D" parent="."]
+position = Vector2(7536, 3552)
+script = ExtResource("wall")
+wall_size = Vector2(96, 576)
+
+[node name="Wall99" type="StaticBody2D" parent="."]
+position = Vector2(624, 3600)
+script = ExtResource("wall")
+wall_size = Vector2(480, 480)
+
+[node name="Wall100" type="StaticBody2D" parent="."]
+position = Vector2(1920, 3600)
+script = ExtResource("wall")
+wall_size = Vector2(384, 480)
+
+[node name="Wall101" type="StaticBody2D" parent="."]
+position = Vector2(3264, 3600)
+script = ExtResource("wall")
+wall_size = Vector2(384, 480)
+
+[node name="Wall102" type="StaticBody2D" parent="."]
+position = Vector2(4608, 3600)
+script = ExtResource("wall")
+wall_size = Vector2(384, 480)
+
+[node name="Wall103" type="StaticBody2D" parent="."]
+position = Vector2(5952, 3600)
+script = ExtResource("wall")
+wall_size = Vector2(384, 480)
+
+[node name="Wall104" type="StaticBody2D" parent="."]
+position = Vector2(7296, 3600)
+script = ExtResource("wall")
+wall_size = Vector2(384, 480)
+
+[node name="Pickup0" type="Node2D" parent="."]
+position = Vector2(4560, 528)
+script = ExtResource("pickup")
+kind = 0
+powerup_type = 5
+
+[node name="Pickup1" type="Node2D" parent="."]
+position = Vector2(4752, 528)
+script = ExtResource("pickup")
+kind = 2
+
+[node name="Mob0" type="Node2D" parent="."]
+position = Vector2(6000, 528)
+script = ExtResource("mob")
+monster_type = 6
+
+[node name="Mob1" type="Node2D" parent="."]
+position = Vector2(1968, 624)
+script = ExtResource("mob")
+monster_type = 1
+
+[node name="Break0" type="StaticBody2D" parent="."]
+position = Vector2(4656, 624)
+script = ExtResource("break")
+
+[node name="Mob2" type="Node2D" parent="."]
+position = Vector2(5808, 624)
+script = ExtResource("mob")
+monster_type = 6
+
+[node name="Mob3" type="Node2D" parent="."]
+position = Vector2(1968, 720)
+script = ExtResource("mob")
+monster_type = 7
+
+[node name="Mob4" type="Node2D" parent="."]
+position = Vector2(2928, 720)
+script = ExtResource("mob")
+monster_type = 3
+
+[node name="Mob5" type="Node2D" parent="."]
+position = Vector2(4656, 720)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Mob6" type="Node2D" parent="."]
+position = Vector2(6000, 720)
+script = ExtResource("mob")
+monster_type = 7
+
+[node name="Mob7" type="Node2D" parent="."]
+position = Vector2(6288, 720)
+script = ExtResource("mob")
+monster_type = 7
+
+[node name="Spawner0" type="StaticBody2D" parent="."]
+position = Vector2(1872, 816)
+script = ExtResource("spawner")
+
+[node name="Mob8" type="Node2D" parent="."]
+position = Vector2(3792, 816)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Mob9" type="Node2D" parent="."]
+position = Vector2(4080, 816)
+script = ExtResource("mob")
+monster_type = 1
+
+[node name="Mob10" type="Node2D" parent="."]
+position = Vector2(5712, 816)
+script = ExtResource("mob")
+monster_type = 6
+
+[node name="Mob11" type="Node2D" parent="."]
+position = Vector2(2160, 912)
+script = ExtResource("mob")
+monster_type = 2
+
+[node name="Mob12" type="Node2D" parent="."]
+position = Vector2(2256, 912)
+script = ExtResource("mob")
+monster_type = 6
+
+[node name="Mob13" type="Node2D" parent="."]
+position = Vector2(2736, 912)
+script = ExtResource("mob")
+monster_type = 2
+
+[node name="Turret0" type="StaticBody2D" parent="."]
+position = Vector2(3312, 912)
+script = ExtResource("turret")
+
+[node name="Saw0" type="Area2D" parent="."]
+position = Vector2(4656, 912)
+script = ExtResource("saw")
+patrol_offset = Vector2(288, 0)
+move_speed = 200.0
+
+[node name="Mob14" type="Node2D" parent="."]
+position = Vector2(5424, 912)
+script = ExtResource("mob")
+monster_type = 3
+
+[node name="Turret1" type="StaticBody2D" parent="."]
+position = Vector2(6000, 912)
+script = ExtResource("turret")
+
+[node name="Mob15" type="Node2D" parent="."]
+position = Vector2(6384, 912)
+script = ExtResource("mob")
+monster_type = 7
+
+[node name="Mob16" type="Node2D" parent="."]
+position = Vector2(1872, 1008)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Mob17" type="Node2D" parent="."]
+position = Vector2(2352, 1008)
+script = ExtResource("mob")
+monster_type = 2
+
+[node name="Mob18" type="Node2D" parent="."]
+position = Vector2(3696, 1008)
+script = ExtResource("mob")
+monster_type = 3
+
+[node name="Mob19" type="Node2D" parent="."]
+position = Vector2(7824, 1008)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Mob20" type="Node2D" parent="."]
+position = Vector2(4848, 1104)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Tp0" type="Area2D" parent="."]
+position = Vector2(1968, 1488)
+script = ExtResource("tp")
+color = "green"
+
+[node name="Pickup2" type="Node2D" parent="."]
+position = Vector2(2064, 1584)
+script = ExtResource("pickup")
+kind = 2
+
+[node name="Mob21" type="Node2D" parent="."]
+position = Vector2(912, 1872)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Mob22" type="Node2D" parent="."]
+position = Vector2(1680, 1872)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Mob23" type="Node2D" parent="."]
+position = Vector2(7824, 1872)
+script = ExtResource("mob")
+monster_type = 3
+
+[node name="Mob24" type="Node2D" parent="."]
+position = Vector2(7344, 2064)
+script = ExtResource("mob")
+monster_type = 7
+
+[node name="Spawner1" type="StaticBody2D" parent="."]
+position = Vector2(816, 2160)
+script = ExtResource("spawner")
+
+[node name="Metin0" type="StaticBody2D" parent="."]
+position = Vector2(7728, 2352)
+script = ExtResource("metin")
+color = "blue"
+random_type = true
+max_hp = 500.0
+spawn_per_damage = 250.0
+drop_count = 1
+drop_key_color = "blue"
+
+[node name="Mob25" type="Node2D" parent="."]
+position = Vector2(528, 2640)
+script = ExtResource("mob")
+monster_type = 3
+
+[node name="Pickup3" type="Node2D" parent="."]
+position = Vector2(4752, 2640)
+script = ExtResource("pickup")
+kind = 2
+
+[node name="Mob26" type="Node2D" parent="."]
+position = Vector2(4848, 2736)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Mob27" type="Node2D" parent="."]
+position = Vector2(240, 2832)
+script = ExtResource("mob")
+monster_type = 1
+
+[node name="Mob28" type="Node2D" parent="."]
+position = Vector2(336, 2832)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Mob29" type="Node2D" parent="."]
+position = Vector2(912, 2832)
+script = ExtResource("mob")
+monster_type = 3
+
+[node name="Tp1" type="Area2D" parent="."]
+position = Vector2(1968, 2832)
+script = ExtResource("tp")
+color = "green"
+
+[node name="Mob30" type="Node2D" parent="."]
+position = Vector2(4368, 2832)
+script = ExtResource("mob")
+monster_type = 2
+
+[node name="Spawner2" type="StaticBody2D" parent="."]
+position = Vector2(6096, 2832)
+script = ExtResource("spawner")
+
+[node name="Mob31" type="Node2D" parent="."]
+position = Vector2(624, 2928)
+script = ExtResource("mob")
+monster_type = 7
+
+[node name="Mob32" type="Node2D" parent="."]
+position = Vector2(3408, 2928)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Mob33" type="Node2D" parent="."]
+position = Vector2(4944, 2928)
+script = ExtResource("mob")
+monster_type = 2
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(720, 3024)
+script = ExtResource("exit")
+
+[node name="Lock0" type="StaticBody2D" parent="."]
+position = Vector2(1200, 3024)
+script = ExtResource("lock")
+color = "blue"
+required_key = "blue"
+wall_size = Vector2(96, 96)
+
+[node name="Laser0" type="StaticBody2D" parent="."]
+position = Vector2(1968, 3024)
+script = ExtResource("laser")
+
+[node name="Mob34" type="Node2D" parent="."]
+position = Vector2(3216, 3024)
+script = ExtResource("mob")
+monster_type = 6
+
+[node name="Mob35" type="Node2D" parent="."]
+position = Vector2(3888, 3024)
+script = ExtResource("mob")
+monster_type = 7
+
+[node name="Laser1" type="StaticBody2D" parent="."]
+position = Vector2(4656, 3024)
+script = ExtResource("laser")
+
+[node name="Saw1" type="Area2D" parent="."]
+position = Vector2(6000, 3024)
+script = ExtResource("saw")
+patrol_offset = Vector2(0, 0)
+move_speed = 0.0
+
+[node name="Mob36" type="Node2D" parent="."]
+position = Vector2(6768, 3024)
+script = ExtResource("mob")
+monster_type = 0
+
+[node name="Pickup4" type="Node2D" parent="."]
+position = Vector2(4368, 3120)
+script = ExtResource("pickup")
+kind = 0
+powerup_type = 2
+
+[node name="Mob37" type="Node2D" parent="."]
+position = Vector2(816, 3216)
+script = ExtResource("mob")
+monster_type = 2

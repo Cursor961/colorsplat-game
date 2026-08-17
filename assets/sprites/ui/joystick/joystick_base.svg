@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <!-- JOYSTICK BASE: Transparent circle with subtle border. 160x160. -->
+  <circle cx="80" cy="80" r="76" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
+  <circle cx="80" cy="80" r="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="6,4"/>
+</svg>

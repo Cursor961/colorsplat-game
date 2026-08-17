@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://monster_scene"]
+
+[ext_resource type="Script" path="res://scripts/game/monster.gd" id="1_monster"]
+[ext_resource type="Texture2D" path="res://assets/sprites/enemies/monster_basic.svg" id="2_sprite"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_monster"]
+radius = 16.0
+
+[node name="Monster" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 48
+script = ExtResource("1_monster")
+metadata/_note = "mask=16 (solids only, NOT layer 4) so monsters DON'T collide with EACH OTHER — dense clusters were O(n^2) physics. Solids (walls/totems/barrels/crates) carry bit 16; soft separation is handled by compute_avoidance."
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sprite")
+scale = Vector2(0.08, 0.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_monster")

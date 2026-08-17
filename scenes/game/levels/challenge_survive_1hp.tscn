@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://challenge_survive_1hp"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_manager.gd" id="1_lm"]
+[ext_resource type="PackedScene" path="res://scenes/game/level/level_monster_spawn.tscn" id="2_ms"]
+[ext_resource type="PackedScene" path="res://scenes/game/level/level_wall.tscn" id="3_w"]
+[ext_resource type="PackedScene" path="res://scenes/game/level/level_pickup_spawn.tscn" id="4_ps"]
+
+[node name="ChallengeSurvive1HP" type="Node2D"]
+script = ExtResource("1_lm")
+goal_reach_exit = false
+goal_survive_time = true
+survive_seconds = 45.0
+force_start_hp = 1.0
+level_name = "Survive 45s · 1 HP"
+
+[node name="SpawnTL" parent="." instance=ExtResource("2_ms")]
+position = Vector2(300, 220)
+monster_type = 2
+count = 1
+spread = 30.0
+repeat = true
+repeat_interval = 4.0
+
+[node name="SpawnTR" parent="." instance=ExtResource("2_ms")]
+position = Vector2(1620, 220)
+monster_type = 0
+count = 2
+spread = 50.0
+repeat = true
+repeat_interval = 3.5
+
+[node name="SpawnBL" parent="." instance=ExtResource("2_ms")]
+position = Vector2(300, 860)
+monster_type = 0
+count = 2
+spread = 50.0
+repeat = true
+repeat_interval = 4.5
+
+[node name="SpawnBR" parent="." instance=ExtResource("2_ms")]
+position = Vector2(1620, 860)
+monster_type = 2
+count = 1
+spread = 30.0
+repeat = true
+repeat_interval = 5.0
+
+[node name="WallTop" parent="." instance=ExtResource("3_w")]
+position = Vector2(960, 320)
+wall_size = Vector2(420, 44)
+
+[node name="WallBottom" parent="." instance=ExtResource("3_w")]
+position = Vector2(960, 760)
+wall_size = Vector2(420, 44)
+
+[node name="SpeedBoost" parent="." instance=ExtResource("4_ps")]
+position = Vector2(960, 540)
+kind = 0
+powerup_type = 3
+start_delay = 6.0
+repeat = true
+repeat_interval = 14.0

@@ -1,0 +1,24 @@
+# ── Godot ────────────────────────────────────────────────────────────────────
+# Editor/import cache — regenerated on first open.
+.godot/
+# Android build template (installed locally via Project → Install Android Build Template).
+/android/
+# Export output.
+*.apk
+*.aab
+export_presets_local.cfg
+
+# ── Audio (not distributed) ──────────────────────────────────────────────────
+# The music and sound effects used in the published build are not my own work and
+# are therefore not part of this repository. See assets/audio/README.md — the game
+# runs fine without them (AudioManager skips any file it can't find).
+/assets/audio/*
+!/assets/audio/README.md
+
+# ── Misc ─────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*~lock~
+/.claude/

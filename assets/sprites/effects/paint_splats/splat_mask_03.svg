@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- SPLAT MASK 03: Cross-shaped blocky splat. -->
+  <!-- Center mass -->
+  <rect x="104" y="104" width="48" height="48" fill="#FFF"/>
+  <!-- Cross arms -->
+  <rect x="112" y="72" width="32" height="32" fill="#FFF"/>
+  <rect x="112" y="152" width="32" height="36" fill="#FFF"/>
+  <rect x="64" y="108" width="40" height="40" fill="#FFF"/>
+  <rect x="152" y="112" width="36" height="32" fill="#FFF"/>
+  <!-- Diagonals -->
+  <rect x="72" y="72" width="24" height="24" fill="#FFF"/>
+  <rect x="164" y="68" width="20" height="20" fill="#FFF"/>
+  <rect x="68" y="164" width="20" height="20" fill="#FFF"/>
+  <rect x="168" y="160" width="24" height="20" fill="#FFF"/>
+  <!-- Scattered -->
+  <rect x="48" y="60" width="12" height="12" fill="#FFF"/>
+  <rect x="192" y="52" width="8" height="8" fill="#FFF"/>
+  <rect x="52" y="192" width="12" height="8" fill="#FFF"/>
+  <rect x="196" y="184" width="12" height="12" fill="#FFF"/>
+  <rect x="120" y="48" width="8" height="12" fill="#FFF"/>
+  <rect x="124" y="196" width="12" height="8" fill="#FFF"/>
+  <rect x="40" y="128" width="12" height="8" fill="#FFF"/>
+  <rect x="204" y="120" width="8" height="12" fill="#FFF"/>
+</svg>

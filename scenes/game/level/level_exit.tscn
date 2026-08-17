@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lvl_exit"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_exit.gd" id="1_exit"]
+
+[node name="LevelExit" type="Area2D"]
+script = ExtResource("1_exit")
+exit_size = Vector2(160, 160)
+require_all_enemies_dead = false

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- SPLAT MASK 01: Blocky pixel-art splat. White mask - tinted via modulate. -->
+  <!-- Core cluster -->
+  <rect x="96" y="96" width="64" height="64" fill="#FFF"/>
+  <rect x="80" y="112" width="16" height="48" fill="#FFF"/>
+  <rect x="160" y="104" width="16" height="40" fill="#FFF"/>
+  <rect x="104" y="80" width="48" height="16" fill="#FFF"/>
+  <rect x="112" y="160" width="40" height="16" fill="#FFF"/>
+  <!-- Arms -->
+  <rect x="56" y="104" width="24" height="24" fill="#FFF"/>
+  <rect x="176" y="112" width="24" height="20" fill="#FFF"/>
+  <rect x="120" y="64" width="20" height="16" fill="#FFF"/>
+  <rect x="108" y="176" width="24" height="20" fill="#FFF"/>
+  <!-- Scattered pixels -->
+  <rect x="40" y="120" width="12" height="12" fill="#FFF"/>
+  <rect x="200" y="100" width="12" height="12" fill="#FFF"/>
+  <rect x="136" y="48" width="12" height="12" fill="#FFF"/>
+  <rect x="80" y="184" width="12" height="12" fill="#FFF"/>
+  <rect x="168" y="168" width="16" height="12" fill="#FFF"/>
+  <rect x="60" y="80" width="12" height="12" fill="#FFF"/>
+  <rect x="144" y="192" width="12" height="8" fill="#FFF"/>
+  <rect x="184" y="76" width="8" height="8" fill="#FFF"/>
+  <rect x="52" y="160" width="8" height="8" fill="#FFF"/>
+</svg>

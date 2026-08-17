@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://chhorda0001"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_manager.gd" id="1_lm"]
+[ext_resource type="Script" path="res://scripts/game/level/level_monster_spawn.gd" id="2_spawn"]
+
+[node name="HordaChallenge" type="Node2D"]
+script = ExtResource("1_lm")
+goal_reach_exit = false
+force_start_hp = 1.0
+hide_hp_bar = true
+grenade_mode = true
+monster_speed_mult = 1.18
+show_kill_counter = true
+stars_by_kills = true
+star_kills_1 = 70
+star_kills_2 = 120
+star_kills_3 = 160
+level_name = "Horda"
+description = "Nekonečná vlna rychlých monster — jen granáty (pozor na vlastní výbuchy). Běh končí smrtí. ★ 70 · ★★ 120 · ★★★ 160 zabití"
+challenge_id = "horda"
+
+[node name="BasicSpawnA" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+monster_type = 0
+count = 1
+spread = 80.0
+from_random_edge = true
+start_delay = 1.0
+repeat = true
+repeat_interval = 0.55
+
+[node name="BasicSpawnB" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+monster_type = 0
+count = 1
+spread = 80.0
+from_random_edge = true
+start_delay = 1.4
+repeat = true
+repeat_interval = 0.75

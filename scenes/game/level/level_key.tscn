@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lvl_key"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_key.gd" id="1_key"]
+
+[node name="LevelKey" type="Area2D"]
+script = ExtResource("1_key")
+key_id = "key1"
+pickup_radius = 30.0

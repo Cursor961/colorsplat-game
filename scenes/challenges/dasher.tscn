@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://csdasherchallenge"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_manager.gd" id="1_lm"]
+[ext_resource type="Script" path="res://scripts/game/level/level_monster_spawn.gd" id="2_spawn"]
+
+[node name="DasherChallenge" type="Node2D"]
+script = ExtResource("1_lm")
+goal_reach_exit = false
+force_start_hp = 1.0
+disable_shooting = true
+enemy_projectile_speed_mult = 1.18
+healer_wander = true
+arena_width_override = 1440.0
+arena_height_override = 810.0
+hide_hp_bar = true
+stars_by_survival = true
+star_time_1 = 40.0
+star_time_2 = 50.0
+star_time_3 = 60.0
+level_name = "Dasher"
+description = "Přežij co nejdéle mezi nejlepšími střelci ve hře. ★ 40 s · ★★ 50 s · ★★★ 60 s"
+challenge_id = "dasher"
+
+[node name="HealerSpawn" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+monster_type = 4
+count = 1
+spread = 60.0
+from_random_side = true
+start_delay = 1.0
+repeat = true
+repeat_interval = 5.0
+stop_after = 35.0

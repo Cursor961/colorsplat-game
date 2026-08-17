@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://chreznik0001"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_manager.gd" id="1_lm"]
+[ext_resource type="Script" path="res://scripts/game/level/level_saw.gd" id="2_saw"]
+
+[node name="ReznikChallenge" type="Node2D"]
+script = ExtResource("1_lm")
+goal_reach_exit = false
+force_start_hp = 1.0
+hide_hp_bar = true
+endless_spawning = true
+spawn_powerups = true
+spawn_items = true
+stars_by_survival = true
+star_time_1 = 120.0
+star_time_2 = 240.0
+star_time_3 = 360.0
+player_start_pos = Vector2(960, 540)
+level_name = "Řezník"
+description = "Tři pily létají po aréně + nájezdy monster. Jeden zásah a konec. ★ 2:00 · ★★ 4:00 · ★★★ 6:00"
+challenge_id = "reznik"
+
+[node name="Saw1" type="Area2D" parent="."]
+position = Vector2(140, 160)
+script = ExtResource("2_saw")
+size = 130.0
+fly = true
+fly_speed = 330.0
+
+[node name="Saw2" type="Area2D" parent="."]
+position = Vector2(1780, 920)
+script = ExtResource("2_saw")
+size = 130.0
+fly = true
+fly_speed = 400.0
+
+[node name="Saw3" type="Area2D" parent="."]
+position = Vector2(1780, 160)
+script = ExtResource("2_saw")
+size = 130.0
+fly = true
+fly_speed = 300.0

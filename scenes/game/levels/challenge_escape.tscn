@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://challenge_escape"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_manager.gd" id="1_lm"]
+[ext_resource type="PackedScene" path="res://scenes/game/level/level_monster_spawn.tscn" id="2_ms"]
+[ext_resource type="PackedScene" path="res://scenes/game/level/level_wall.tscn" id="3_w"]
+[ext_resource type="PackedScene" path="res://scenes/game/level/level_key.tscn" id="4_key"]
+[ext_resource type="PackedScene" path="res://scenes/game/level/locked_wall.tscn" id="5_lock"]
+[ext_resource type="PackedScene" path="res://scenes/game/level/level_teleport.tscn" id="6_tp"]
+[ext_resource type="PackedScene" path="res://scenes/game/level/level_exit.tscn" id="7_exit"]
+
+[node name="ChallengeEscape" type="Node2D"]
+script = ExtResource("1_lm")
+goal_reach_exit = true
+goal_survive_time = false
+level_name = "The Escape"
+player_start = NodePath("PlayerStart")
+
+[node name="PlayerStart" type="Node2D" parent="."]
+position = Vector2(200, 540)
+
+[node name="WallBarrier" parent="." instance=ExtResource("3_w")]
+position = Vector2(700, 300)
+wall_size = Vector2(44, 600)
+
+[node name="Key1" parent="." instance=ExtResource("4_key")]
+position = Vector2(440, 860)
+key_id = "key1"
+
+[node name="LockedGate" parent="." instance=ExtResource("5_lock")]
+position = Vector2(1400, 540)
+wall_size = Vector2(44, 520)
+required_key = "key1"
+
+[node name="TeleportA" parent="." instance=ExtResource("6_tp")]
+position = Vector2(780, 880)
+target = NodePath("../TeleportB")
+
+[node name="TeleportB" parent="." instance=ExtResource("6_tp")]
+position = Vector2(1150, 230)
+target = NodePath("../TeleportA")
+
+[node name="SpawnBrute" parent="." instance=ExtResource("2_ms")]
+position = Vector2(1050, 320)
+monster_type = 3
+count = 1
+
+[node name="SpawnSpeeders" parent="." instance=ExtResource("2_ms")]
+position = Vector2(1150, 800)
+monster_type = 2
+count = 3
+spread = 60.0
+
+[node name="Exit" parent="." instance=ExtResource("7_exit")]
+position = Vector2(1760, 540)
+exit_size = Vector2(180, 240)

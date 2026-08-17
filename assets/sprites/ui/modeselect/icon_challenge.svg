@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Skull icon for Challenge mode -->
+  <g fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Skull top -->
+    <path d="M28 58 C28 30 44 12 64 12 C84 12 100 30 100 58 C100 74 92 84 84 88 L84 100 L44 100 L44 88 C36 84 28 74 28 58 Z"/>
+    <!-- Left eye -->
+    <circle cx="50" cy="54" r="10" fill="white"/>
+    <!-- Right eye -->
+    <circle cx="78" cy="54" r="10" fill="white"/>
+    <!-- Teeth -->
+    <line x1="52" y1="100" x2="52" y2="116"/>
+    <line x1="64" y1="100" x2="64" y2="116"/>
+    <line x1="76" y1="100" x2="76" y2="116"/>
+    <!-- Jaw bottom -->
+    <line x1="44" y1="116" x2="84" y2="116"/>
+  </g>
+</svg>

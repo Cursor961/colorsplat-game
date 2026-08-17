@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <!-- SPLAT MASK 04: Asymmetric blocky splat, upper-right heavy. -->
+  <!-- Core off-center -->
+  <rect x="108" y="92" width="56" height="52" fill="#FFF"/>
+  <rect x="92" y="100" width="16" height="36" fill="#FFF"/>
+  <rect x="164" y="96" width="20" height="44" fill="#FFF"/>
+  <!-- Upper-right arm -->
+  <rect x="152" y="60" width="32" height="32" fill="#FFF"/>
+  <rect x="184" y="68" width="20" height="24" fill="#FFF"/>
+  <rect x="168" y="44" width="16" height="16" fill="#FFF"/>
+  <!-- Lower-left arm -->
+  <rect x="80" y="144" width="36" height="24" fill="#FFF"/>
+  <rect x="64" y="136" width="16" height="20" fill="#FFF"/>
+  <!-- Side blobs -->
+  <rect x="116" y="144" width="40" height="20" fill="#FFF"/>
+  <rect x="100" y="68" width="28" height="24" fill="#FFF"/>
+  <!-- Fragments -->
+  <rect x="204" y="56" width="12" height="12" fill="#FFF"/>
+  <rect x="48" y="152" width="12" height="8" fill="#FFF"/>
+  <rect x="196" y="132" width="8" height="8" fill="#FFF"/>
+  <rect x="72" y="76" width="12" height="8" fill="#FFF"/>
+  <rect x="140" y="168" width="8" height="12" fill="#FFF"/>
+  <rect x="56" y="112" width="8" height="8" fill="#FFF"/>
+  <rect x="88" y="172" width="12" height="8" fill="#FFF"/>
+</svg>

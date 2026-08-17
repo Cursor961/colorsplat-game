@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://colorsplat_level_1"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_manager.gd" id="1_lm"]
+[ext_resource type="Script" path="res://scripts/game/level/level_wall.gd" id="2_wall"]
+[ext_resource type="Script" path="res://scripts/game/level/level_controls_hint.gd" id="3_hint"]
+[ext_resource type="Script" path="res://scripts/game/level/level_monster_spawn.gd" id="4_mob"]
+[ext_resource type="Script" path="res://scripts/game/level/level_monster_spawner.gd" id="5_spawner"]
+[ext_resource type="Script" path="res://scripts/game/level/level_pickup_spawn.gd" id="6_pickup"]
+[ext_resource type="Script" path="res://scripts/game/level/level_exit.gd" id="7_exit"]
+[ext_resource type="Script" path="res://scripts/game/level/level_floor_text.gd" id="8_text"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_lm")
+goal_reach_exit = true
+player_start_pos = Vector2(432, 336)
+stars_by_speed = true
+star_time_1 = 9999.0
+star_time_2 = 12.0
+star_time_3 = 10.0
+arena_width_override = 4032.0
+arena_height_override = 672.0
+level_number = 1
+level_name = "Level 1"
+description = "První level — projdi chodbu k modrému portálu. ★ dokončení · ★★ pod 0:12 · ★★★ pod 0:10"
+monsters_wander = true
+wander_detect_radius = 480.0
+
+[node name="WallTop" type="StaticBody2D" parent="."]
+position = Vector2(2016, 48)
+script = ExtResource("2_wall")
+wall_size = Vector2(4032, 96)
+
+[node name="WallBottom" type="StaticBody2D" parent="."]
+position = Vector2(2016, 624)
+script = ExtResource("2_wall")
+wall_size = Vector2(4032, 96)
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+position = Vector2(48, 336)
+script = ExtResource("2_wall")
+wall_size = Vector2(96, 480)
+
+[node name="WallRight" type="StaticBody2D" parent="."]
+position = Vector2(3984, 336)
+script = ExtResource("2_wall")
+wall_size = Vector2(96, 480)
+
+[node name="ControlsHint" type="Node2D" parent="."]
+position = Vector2(432, 190)
+script = ExtResource("3_hint")
+size = 180.0
+
+[node name="MobN1" type="Node2D" parent="."]
+position = Vector2(912, 336)
+script = ExtResource("4_mob")
+monster_type = 0
+count = 1
+spread = 60.0
+
+[node name="PowTriple" type="Node2D" parent="."]
+position = Vector2(1392, 336)
+script = ExtResource("6_pickup")
+kind = 0
+powerup_type = 2
+
+[node name="ItemCrate" type="Node2D" parent="."]
+position = Vector2(1776, 336)
+script = ExtResource("6_pickup")
+kind = 2
+crate_force_item = true
+
+[node name="ItemHint" type="Node2D" parent="."]
+position = Vector2(1776, 200)
+script = ExtResource("8_text")
+text_key = "hint_tap_item"
+
+[node name="LootCrate" type="Node2D" parent="."]
+position = Vector2(2304, 336)
+script = ExtResource("6_pickup")
+kind = 2
+
+[node name="Spawner" type="StaticBody2D" parent="."]
+position = Vector2(2832, 336)
+script = ExtResource("5_spawner")
+random_type = true
+
+[node name="MobN2" type="Node2D" parent="."]
+position = Vector2(3168, 336)
+script = ExtResource("4_mob")
+monster_type = 0
+count = 1
+spread = 60.0
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(3552, 336)
+script = ExtResource("7_exit")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lvl_teleport"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_teleport.gd" id="1_tp"]
+
+[node name="LevelTeleport" type="Area2D"]
+script = ExtResource("1_tp")
+pad_radius = 38.0
+arrival_cooldown = 0.6

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://chtotem0001"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_manager.gd" id="1_lm"]
+[ext_resource type="Script" path="res://scripts/game/level/level_metin_spawner.gd" id="2_spawner"]
+[ext_resource type="Script" path="res://scripts/game/level/level_monster_spawn.gd" id="3_spawn"]
+
+[node name="TotemChallenge" type="Node2D"]
+script = ExtResource("1_lm")
+goal_reach_exit = false
+force_start_hp = 1.0
+hide_hp_bar = true
+monster_speed_mult = 1.25
+monster_speedup_per_target = 0.01
+stars_by_targets = true
+time_slot = "targets"
+star_targets_1 = 5
+star_targets_2 = 8
+star_targets_3 = 12
+player_start_pos = Vector2(960, 540)
+level_name = "Totem"
+description = "Nič totemy — zásah do nich vychrlí monstra. Po stranách útočí základní monstra, máš 1 HP. ★ 5 · ★★ 8 · ★★★ 12 totemů"
+challenge_id = "totem"
+
+[node name="MetinSpawner" type="Node2D" parent="."]
+script = ExtResource("2_spawner")
+count = 3
+metin_size = 80.0
+metin_hp = 1000.0
+spawn_per_damage = 350.0
+metin_spawn_count = 3
+
+[node name="SideSpawn" type="Node2D" parent="."]
+script = ExtResource("3_spawn")
+monster_type = 0
+count = 1
+from_random_side = true
+start_delay = 1.0
+repeat = true
+repeat_interval = 1.0

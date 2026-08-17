@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://chblackout01"]
+
+[ext_resource type="Script" path="res://scripts/game/level/level_manager.gd" id="1_lm"]
+
+[node name="BlackoutChallenge" type="Node2D"]
+script = ExtResource("1_lm")
+goal_reach_exit = false
+force_start_hp = 1.0
+hide_hp_bar = true
+endless_spawning = true
+blackout = true
+blackout_radius = 280.0
+stars_by_survival = true
+star_time_1 = 60.0
+star_time_2 = 100.0
+star_time_3 = 140.0
+level_name = "Blackout"
+description = "Tma. Vidíš jen kousek kolem sebe. Přežij. ★ 1:00 · ★★ 1:40 · ★★★ 2:20"
+challenge_id = "blackout"
