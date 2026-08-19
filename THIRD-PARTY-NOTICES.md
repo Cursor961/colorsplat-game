@@ -25,14 +25,9 @@ All fonts are from [Google Fonts](https://fonts.google.com) under the
 | Caveat | Impallari Type |
 | Lilita One | Juan Montoreano |
 
-## Graphics — `assets/sprites/`
+## Everything else
 
-Vector art (187 SVGs), the app icon and the promo graphic are my own work, drawn for
-this project, and are covered by the MIT license of this repository.
-
-## Audio
-
-The music and sound effects used in the published build are **not** my own work and are
-therefore **not** included in this repository. See
-[`assets/audio/README.md`](assets/audio/README.md) for the list of filenames the game
-looks for, so you can drop in your own.
+The graphics (187 SVGs, the app icon, the promo art), the code, the levels and the audio
+arrangement are my own work and are covered by the MIT license of this repository.
+Music and sound effects were generated with AI tools and then selected, edited and
+assembled by me.

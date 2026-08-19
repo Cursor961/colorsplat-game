@@ -4,167 +4,132 @@
 
 # ColorSplat!
 
-**A twin-stick paint shooter for Android, built in Godot 4 with GDScript.**
+**A twin-stick paint shooter for Android — made in Godot 4.**
 
-Survive the arena, splatter everything, and don't get caught standing in someone else's paint.
+Move with one thumb, shoot with the other. Everything you kill splatters paint,
+and paint that isn't yours slows you down.
 
 [![Godot](https://img.shields.io/badge/Godot-4.7-478cbf?logo=godotengine&logoColor=white)](https://godotengine.org)
 [![GDScript](https://img.shields.io/badge/GDScript-24.7k%20lines-355570)](scripts/)
-[![Platform](https://img.shields.io/badge/platform-Android-3ddc84?logo=android&logoColor=white)](#building)
+[![Platform](https://img.shields.io/badge/platform-Android-3ddc84?logo=android&logoColor=white)](#build-it-for-android)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-<img src="docs/img/promo.png" width="720" alt="ColorSplat! promo art">
+<img src="docs/img/promo.png" width="760" alt="ColorSplat! promo art">
 
 </div>
 
 ---
 
-## What it is
+## Screenshots
 
-A top-down arena shooter for phones: two virtual sticks, one to move, one to aim. Every
-kill throws paint on the floor, and paint that isn't yours slows you to 40 % speed — so the
-arena you're winning in is also the arena that's closing in on you.
+<table>
+<tr>
+<td width="50%"><img src="docs/img/menu.png" alt="Main menu"><br><sub><b>Main menu</b> — all UI and art drawn by me</sub></td>
+<td width="50%"><img src="docs/img/levels.png" alt="Level select"><br><sub><b>30 levels</b> with auto-generated minimaps and star times</sub></td>
+</tr>
+<tr>
+<td><img src="docs/img/boss.png" alt="Boss fight"><br><sub><b>Boss fight</b> in level 30 — paint everywhere</sub></td>
+<td><img src="docs/img/swarm.png" alt="Challenge arena"><br><sub><b>Challenge arena</b> — endless swarm, grenades only</sub></td>
+</tr>
+<tr>
+<td><img src="docs/img/skins.png" alt="Skins"><br><sub><b>32 skins and 26 trails</b>, every one hand-drawn</sub></td>
+<td><img src="docs/img/stats.png" alt="Stats"><br><sub><b>Stats and 31 achievements</b>, tracked across sessions</sub></td>
+</tr>
+</table>
 
-Three modes:
+## The game
 
-| Mode | What it is |
-|---|---|
-| **Levels** | 30 hand-built levels across 6 arcs, each with wave scripting, hazards, keys and locked doors, and 1–3 stars by clear time |
-| **Endless** | One arena, a 7-minute difficulty ramp, and your best time and kill count on the line |
-| **Challenges** | 8 hand-designed modifier runs — *Blackout*, *Sniper*, *Miniarena*, *Horda*, *Dasher*, *Totem*, *Řezník*, *Zásobník* |
+You're a yellow square in a dark arena. Monsters come at you, you shoot them, and each
+one bursts into a splat of its own colour. That paint stays on the floor — walk through
+someone else's and you crawl at 40 % speed, so the mess you're making is also the trap
+you're building for yourself.
 
-Plus a daily loot box, 31 achievements with cross-session progress tracking, 32 player
-skins and 26 paint trails, and a full settings screen in 5 languages.
+**Three ways to play:**
 
-## Content
+- **Levels** — 30 hand-built levels with waves, turrets, saws, ice, keys and locked doors.
+  Beat one fast enough and you get up to three stars.
+- **Endless** — one arena, monsters keep coming, it gets harder for seven minutes straight.
+  How long can you last?
+- **Challenges** — 8 special runs with a twist each: fight in the dark, only grenades,
+  a tiny arena, one hit and you're out.
 
-| | |
-|---|---|
-| **8 enemy types** | Grunt · Tank · Speeder · Brute (charges) · Healer (heals nearby) · Hive (spawns) · Splitter (splits twice) · Phantom (phases in and out) |
-| **9 power-ups** | Cleaner, HP Boost, Triple Shot, Speed Boost, FMJ (pierces everything), Octoshoot, Shuriken orbit, Invincibility, Time Stop |
-| **5 items** | Grenade (aimed throw, 60 % self-damage), Katana (3 spins, instakill), Laser (screen-wide beam), Slowpill, Heal |
-| **26 level objects** | Turrets, pistons, saws, spikes, ice tiles, teleports, speed pads, breakable walls, colored keys and locked doors, pressure buttons, crates, barrels, boss, metin stones |
-| **Zones** | Timed danger and time-boost zones on a 3×2 arena grid, animated dashed borders |
+Along the way: a daily loot box, 31 achievements, 32 skins and 26 paint trails to unlock,
+and menus in 5 languages (English, Czech, Spanish, German, French).
 
-## Under the hood
+**What's in it:** 8 enemy types (from basic grunts to a healer, a splitter and a phantom
+that phases in and out), 9 power-ups, 5 usable items, 26 different level objects, and a
+boss.
 
-Things in here I'd point at in a code review:
+## Made by me
 
-**Paint that costs nothing when idle.** The floor is a `SubViewport` used as an
-accumulation buffer (`CLEAR_MODE_NEVER`): a splat is drawn by a single `UPDATE_ONCE`
-render, the node is freed, the pixels stay baked. Node count stays near zero and idle
-frames cost no GPU time. Paint *detection* runs on a separate CPU grid — the original
-per-frame `SubViewport.get_image()` read-back stalled the GPU on mobile, so logical
-coverage is tracked in a `Vector2i → Color` dictionary instead, with its own erosion
-accumulator for driving paint off over time. Ice slabs are re-stamped on a throttle so an
-eraser can't punch holes in the background.
-→ [`scripts/game/floor_paint.gd`](scripts/game/floor_paint.gd)
+Everything you see is my own work:
 
-**Data-driven enemies.** All 8 types are one registry of stats and behaviour flags, so a
-new enemy is a dictionary entry plus its special-case hook — sine-wave strafing, charge
-windups, heal pulses, split tiers with per-tier HP/speed/size multipliers.
-→ [`scripts/data/monster_types.gd`](scripts/data/monster_types.gd), [`scripts/game/monster.gd`](scripts/game/monster.gd)
+- **All the graphics.** 187 SVG files — the player, every monster, every skin and trail,
+  every level object, all the icons, the menus, the logo and the app icon. Drawn by me
+  for this game, nothing bought and nothing borrowed.
+- **All the code.** ~24 700 lines of GDScript across 84 files: gameplay, UI, save system,
+  achievements, localization, shaders.
+- **All the levels.** 30 levels and 8 challenge arenas, laid out and tuned by hand.
+- **The audio.** Music and sound effects generated with AI tools, then picked, cut and
+  put together by me.
 
-**Mobile performance budget, everywhere.** 500-particle hard cap, 50–60 monster caps,
-three paint-quality tiers (squares → small squares → real SVG ellipses), rate-limited
-paint erasure, monster-avoidance forces computed once per frame in the world instead of
-per-monster.
+## How it's built
 
-**Crash-safe saves.** JSON written to a temp file and renamed over the live save, with the
-previous save kept as a fallback — a kill mid-write can only ever destroy the temp file.
-→ [`scripts/autoload/save_manager.gd`](scripts/autoload/save_manager.gd)
-
-**Ads that can't break the game.** The AdMob plugin is optional at runtime: if the native
-singleton isn't there (desktop, editor, or any build without the plugin) every rewarded-ad
-request instantly succeeds instead of failing, so the game is fully playable with no ad
-stack at all.
-→ [`scripts/autoload/ad_manager.gd`](scripts/autoload/ad_manager.gd)
-
-**5 languages from one table.** 173 UI strings in en/cz/es/de/fr with English fallback,
-resolved through the OS locale when the player picks *system*.
-→ [`scripts/utils/localization.gd`](scripts/utils/localization.gd)
-
-**5 custom shaders** — paint smear, damage vignette, death greyscale, glow blur, sprite
-greyscale. → [`assets/shaders/`](assets/shaders/)
-
-**Five autoloads, one responsibility each** — `GameManager` (state), `SaveManager`
-(persistence), `AudioManager` (music playlists + SFX voice pool + slow-motion pitch),
-`AchievementManager` (unlock conditions), `AdManager` (rewarded ads).
-
-## Numbers
-
-| | |
-|---|---|
-| GDScript | **24 692 lines** across **84 files** |
-| Scenes | 57 (`.tscn`) |
-| Vector art | 187 SVGs, all drawn for this project |
-| Levels / challenges | 30 / 8 |
-| Achievements | 31 |
-| Cosmetics | 32 skins, 26 trails |
-| Languages | 5 |
-| Target | Android, landscape, 2400×1080 reference viewport, Godot mobile renderer |
-
-## Project structure
+A quick tour for anyone who wants to look at the code:
 
 ```
 scripts/
-  autoload/   5 singletons: game state, saves, audio, achievements, ads
-  game/       gameplay — player, monsters, bullets, paint, items, power-ups, zones
+  autoload/   5 always-on managers: game state, saves, audio, achievements, ads
+  game/       the gameplay — player, monsters, bullets, paint, items, power-ups
     level/    26 level objects: turrets, pistons, keys, doors, hazards…
-  ui/         menus, HUD, popups, virtual joystick
-  data/       registries: enemy stats, level waves, achievements, skins, trails
-  utils/      math, juice/screen-shake, localization, theming, sprite loading
+  ui/         menus, HUD, popups, the virtual joystick
+  data/       the "tables": enemy stats, level waves, achievements, skins, trails
+  utils/      maths, screen-shake, localization, theming
 scenes/
-  levels/     30 levels
-  challenges/ 8 challenge arenas
-  game/       gameplay prefabs
+  levels/     30 levels        challenges/  8 challenge arenas
 assets/
-  sprites/    187 SVGs
-  shaders/    5 .gdshader
-  fonts/      Google Fonts (OFL)
-docs/
-  features.md          every tweakable value, cross-referenced to its file
-  level-items-todo.md  art spec for level objects
+  sprites/    187 SVGs         audio/       music + sound effects
+  shaders/    5 shaders        fonts/       Google Fonts (OFL)
 ```
 
-[`docs/features.md`](docs/features.md) is the reference I actually worked from — every
-tunable in the game with its file, variable name and current value.
+A few bits I'm happy with:
 
-## Running it
+- **The paint.** The floor is one big canvas that everything gets stamped into, so a
+  thousand splats cost the same as one. Whether you're standing in paint is tracked on a
+  simple grid instead of reading pixels back from the GPU — that one change is what made
+  it run smoothly on a phone.
+- **Enemies as data.** All 8 types come from one table of stats, so adding a new one is
+  mostly filling in a row.
+- **Saves that survive a crash.** The game writes to a temp file and swaps it in, keeping
+  the previous save as a backup — closing the app mid-write can't corrupt your progress.
+- **Ads are optional.** With no ad plugin present the whole ad path is skipped, so the
+  game runs fine in the editor and on desktop.
+
+If you want the fine detail, [`docs/features.md`](docs/features.md) lists every tunable
+value in the game — every enemy stat, every timer, every drop chance — with the file it
+lives in.
+
+## Play it from source
 
 ```bash
 git clone https://github.com/Cursor961/colorsplat-game.git
-cd colorsplat-game
 ```
 
-Open the folder in **Godot 4.7** (Project → Import → pick `project.godot`) and press *Play*.
-First import takes a minute while the SVGs rasterize. On desktop the virtual sticks are
-mouse-driven (`emulate_touch_from_mouse` is on), so it's playable in the editor.
+Open the folder in **Godot 4.7** (Project → Import → pick `project.godot`) and hit *Play*.
+The first import takes a minute while the SVGs get rasterized. On desktop the joysticks
+follow the mouse, so it plays in the editor without a phone.
 
-Two things to know about a fresh clone:
+The only thing not in this repo is my AdMob ad IDs — those are placeholders
+(`scripts/autoload/ad_manager.gd`), and test ads are on by default.
 
-- **No audio.** The music and SFX in the published build aren't my work, so they're not in
-  this repo. `AudioManager` skips any file it can't find, so the game runs — just silent.
-  [`assets/audio/README.md`](assets/audio/README.md) lists every filename it looks for if
-  you want to drop your own in.
-- **Placeholder ad IDs.** The AdMob unit IDs in `ad_manager.gd` are zeros. `USE_TEST_ADS`
-  is `true`, and with no native plugin present the ad path is bypassed entirely.
+### Build it for Android
 
-### Building
+The export preset is already set up (`export_presets.cfg`, AAB, `com.colorsplatgame`).
+You'll need Godot's Android build template (*Project → Install Android Build Template*)
+and your own signing key.
 
-Android export is configured in `export_presets.cfg` (AAB, `com.colorsplatgame`, target
-API per the Godot 4.7 template). You'll need to install the Android build template
-(*Project → Install Android Build Template*) and your own keystore — neither is committed.
+## Credits and license
 
-## Origins
-
-ColorSplat! began as a rebuild: a Flash-era arena shooter reimplemented from the ground up
-in Godot 4 for touch. A handful of files still carry `converted from …` comments pointing
-at the classes of that original as a design reference. Everything in this repository —
-the GDScript, the 57 scenes, the 30 levels, the challenge designs, the vector art and the
-UI — was written and drawn for this project.
-
-## License
-
-Code is [MIT](LICENSE). Third-party components (the AdMob plugin, the fonts) and the
-excluded audio are covered in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+Code, graphics and levels: **MIT** — see [LICENSE](LICENSE).
+Built with [Godot Engine](https://godotengine.org). Third-party parts (the AdMob plugin,
+the fonts) are listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
